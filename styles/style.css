@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+:root {
+    /* Fonts */
+    --font-family: 'Overpass';
+    --font-weight-light: 400;
+    --font-weight-bold: 700;
+    --font-size-base: 15px;
+    /* Colors */
+    --orange: hsl(25, 97%, 53%);
+    --white: hsl(0, 0%, 100%);
+    --light-Grey: hsl(217, 12%, 63%);
+    --medium-Grey: hsl(217, 17%, 27%);
+    --dark-Blue: hsl(213, 19%, 18%);
+    --very-Dark-Blue: hsl(216, 12%, 8%);
+}
+
+:is(
+    *,
+    *::before,
+    *::after
+) {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-light);
+    font-size: var(--font-size-base);
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--very-Dark-Blue);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+}
+
+
+.box {
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    background-color: var(--dark-Blue);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr .6fr repeat(3, 1fr);
+    align-items: center;
+    padding: 20px 0;
+}
+
+.box > * {
+    margin: 0 30px;
+}
+
+.box-icon {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: var(--medium-Grey);
+    display: grid;
+    place-items: center;
+}
+
+.box-p {
+    color: var(--light-Grey);
+}
+
+.box-rate {
+    display: grid;
+    width: auto;
+    height: 80%;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    align-items: center;
+}
+
+.box-rate > * {
+    width: 45px;
+    height: 45px;
+    padding: 15px;
+    border-radius: 50%;
+    background-color: var(--medium-Grey);
+    text-align: center;
+    cursor: pointer;
+}
+
+.box-rate > *:nth-child(2) {
+    margin-right: 25%;
+}
+
+.box-rate > *:nth-child(n + 2) {
+    justify-self: center;
+}
+
+.box-rate > *:nth-child(4) {
+    margin-left: 25%;
+}
+
+.box-rate > *:nth-child(5) {
+    justify-self: end;
+}
+
+.box-submit {
+    justify-self: stretch;
+    width: auto;
+    height: 50px;
+    background-color: var(--orange);
+    border-radius: 25px;
+    padding: 15px 0;
+    text-align: center;
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    cursor: pointer;
+}
