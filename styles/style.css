@@ -37,21 +37,32 @@ body {
     place-items: center;
 }
 
-
-.box {
-    width: 400px;
+:is(
+    .box,
+    .thanks-box
+) {
+    width: 380px;
     height: 400px;
     border-radius: 20px;
     background-color: var(--dark-Blue);
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr .6fr repeat(3, 1fr);
     align-items: center;
-    padding: 20px 0;
+    padding: 25px 0;
 }
 
-.box > * {
-    margin: 0 30px;
+.none-box {display: none;}
+
+:is(
+    .box,
+    .thanks-box
+) > * {margin: 0 30px;}
+
+.box {grid-template-rows: 1fr .6fr repeat(3, 1fr);}
+
+.thanks-box {
+    grid-template-rows: 2fr repeat(2, .8fr) 1fr;
+    justify-items: center;
 }
 
 .box-icon {
@@ -64,9 +75,7 @@ body {
     place-items: center;
 }
 
-.box-p {
-    color: var(--light-Grey);
-}
+.box-p {color: var(--light-Grey);}
 
 .box-rate {
     display: grid;
@@ -85,23 +94,17 @@ body {
     background-color: var(--medium-Grey);
     text-align: center;
     cursor: pointer;
+    transition: all .3s;
 }
 
-.box-rate > *:nth-child(2) {
-    margin-right: 25%;
-}
+.box-rate > *:hover {background-color: var(--light-Grey);}
+.box-rate > *:nth-child(2) {margin-right: 20%;}
+.box-rate > *:nth-child(n + 2) {justify-self: center;}
+.box-rate > *:nth-child(4) {margin-left: 20%;}
+.box-rate > *:nth-child(5) {justify-self: end;}
 
-.box-rate > *:nth-child(n + 2) {
-    justify-self: center;
-}
-
-.box-rate > *:nth-child(4) {
-    margin-left: 25%;
-}
-
-.box-rate > *:nth-child(5) {
-    justify-self: end;
-}
+.rate-click {background-color: var(--orange);}
+.rate-click:hover {background-color: var(--orange);}
 
 .box-submit {
     justify-self: stretch;
@@ -114,4 +117,20 @@ body {
     font-weight: var(--font-weight-bold);
     text-transform: uppercase;
     cursor: pointer;
+    transition: all .5s;
 }
+
+.box-submit:hover {
+    color: var(--orange);
+    background-color: var(--white);
+}
+
+.thanks-box-rate {
+    padding: 5px 18px;
+    border-radius: 15px;
+    background-color: var(--medium-Grey);
+    color: var(--orange);
+    font-weight: var(--font-weight-bold);
+}
+
+.thanks-box-p {text-align: center;}
